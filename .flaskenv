@@ -1,0 +1,1 @@
+FlASK_DEBUG=1
