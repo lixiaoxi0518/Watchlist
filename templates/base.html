@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-{% for message in get_flashed_messages() %}
-    <div class="alert">{{ message }}</div>
-{% endfor %}
-<h2>...</h2>
+
 <head>
     {% block head %}
     <meta charset="UTF-8">
@@ -14,12 +11,21 @@
     {% endblock %}
 </head>
 <body>
+    {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+    {% endfor %}
     <h2>
         <img alt="icon" class="icon" src="{{ url_for('static', filename='favicon.jpg')}}">
         {{ user.name }}'s Watchlist
     </h2>
     <nav>
         <u1>
+            {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('settings') }}">Settings</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
             <li><a href="{{ url_for('index') }}">Home</a></li>
         </u1>
     </nav>
