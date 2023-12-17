@@ -3,7 +3,10 @@
 {% block content %}
 <h3>Edit item</h3>
 <form method="post">
-    Name <input type="text" name="title" autocomplete="off" required value="{{ movie.title }}">
+    Name <input type="text" name="title" autocomplete="off" required value="{{ movie.movie_name }}">
+    Date <input type="text" name="date" autocomplete="off" required value ="{{ movie.release_date }}" >
+    Country <input type="text" name="country" autocomplete="off" required value = "{{ movie.country }}">
+    Type <input type="text" name="type" autocomplete="off" required value = "{{ movie.type }}">
     Year <input type="text" name="year" autocomplete="off" required value="{{ movie.year }}">
     <input class="btn" type="submit" name="submit" value="Update">
 </form>
